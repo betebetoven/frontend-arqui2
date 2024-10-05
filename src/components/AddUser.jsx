@@ -59,7 +59,7 @@ const AddUser = () => {
   const handleAddUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://192.168.50.145:8000/add_user', {
+      const response = await axios.post('http://localhost:8000/add_user', {
         uid,
         nombre,
         apellido,

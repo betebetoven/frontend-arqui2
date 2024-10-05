@@ -90,10 +90,10 @@ const History = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const userResponse = await axios.get(`http://192.168.50.145:8000/get_user/${rfid}`);
+        const userResponse = await axios.get(`http://localhost:8000/get_user/${rfid}`);
         setUser(userResponse.data[0]);  // Assuming that the user info is returned as an array with one object
 
-        const historyResponse = await axios.get(`http://192.168.50.145:8000/get_history/${rfid}`);
+        const historyResponse = await axios.get(`http://localhost:8000/get_history/${rfid}`);
         setHistory(historyResponse.data);
       } catch (err) {
         setError('Failed to fetch user info or history.');
@@ -105,12 +105,12 @@ const History = () => {
   // Handle updating the balance
   const handleBalanceUpdate = async () => {
     try {
-      const response = await axios.post(`http://192.168.50.145:8000/set_balance/${rfid}/${newBalance}`);
+      const response = await axios.post(`http://localhost:8000/set_balance/${rfid}/${newBalance}`);
       if (response.data.message === 'Balance updated successfully') {
         setSuccess('Balance updated successfully.');
         setError('');
         // Refresh user info to show the new balance
-        const userResponse = await axios.get(`http://192.168.50.145:8000/get_user/${rfid}`);
+        const userResponse = await axios.get(`http://localhost:8000/get_user/${rfid}`);
         setUser(userResponse.data[0]);
       }
     } catch (err) {

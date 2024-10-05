@@ -51,7 +51,7 @@ const ParkingStatus = () => {
   useEffect(() => {
     const fetchParkingStatus = async () => {
       try {
-        const response = await axios.get('http://192.168.50.145:8000/parking_status');
+        const response = await axios.get('http://localhost:8000/parking_status');
         const data = response.data.status[0];
         setParkingData(data);
       } catch (err) {

@@ -9,7 +9,7 @@ const WebSocketComponent = () => {
 
   useEffect(() => {
     // Create a new WebSocket connection
-    const ws = new WebSocket('ws://192.168.50.145:8000/ws');  // Use the correct IP of the server
+    const ws = new WebSocket('ws://localhost:8000/ws');  // Use the correct IP of the server
 
     // On WebSocket open
     ws.onopen = () => {
